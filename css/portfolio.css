@@ -1,0 +1,142 @@
+/* RESET */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+/* BODY */
+
+body {
+
+  background: #202024;
+
+  overflow-x: hidden;
+}
+
+
+/* CONTENEDOR */
+
+.portfolio-container {
+
+  width: 100%;
+  max-width: 640px;
+
+  margin: 0 auto;
+}
+
+
+/* IMAGENES */
+
+.portfolio-container img {
+
+  display: block;
+
+  width: 100%;
+  height: auto;
+
+  user-select: none;
+
+  -webkit-user-drag: none;
+}
+
+
+/* =========================
+   BOTON CERRAR
+========================= */
+
+.close-btn {
+
+  position: fixed;
+
+  top: 22px;
+  right: 22px;
+
+  width: 44px;
+  height: 44px;
+
+  border: 1px solid rgba(255,255,255,0.25);
+
+  border-radius: 14px;
+
+  background: rgba(20,20,24,0.45);
+
+  backdrop-filter: blur(4px);
+
+  z-index: 1000;
+
+  transition:
+    opacity 0.25s ease,
+    background 0.25s ease,
+    border-color 0.25s ease;
+}
+
+
+/* HOVER */
+
+.close-btn:hover {
+
+  background: rgba(255,255,255,0.08);
+
+  border-color: rgba(255,255,255,0.45);
+}
+
+
+/* =========================
+   X CSS
+========================= */
+
+.close-btn::before,
+.close-btn::after {
+
+  content: "";
+
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  width: 16px;
+  height: 2px;
+
+  background: rgba(255,255,255,0.92);
+
+  border-radius: 999px;
+}
+
+
+/* LINEA 1 */
+
+.close-btn::before {
+
+  transform:
+    translate(-50%, -50%)
+    rotate(45deg);
+}
+
+
+/* LINEA 2 */
+
+.close-btn::after {
+
+  transform:
+    translate(-50%, -50%)
+    rotate(-45deg);
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 640px) {
+
+  .close-btn {
+
+    top: 16px;
+    right: 16px;
+  }
+
+}

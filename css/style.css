@@ -1,0 +1,607 @@
+/* RESET */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+/* BODY */
+
+body {
+
+  background: #F3F3F4;
+
+  font-family: Arial, sans-serif;
+
+  overflow-x: hidden;
+}
+
+
+/* CONTENEDOR */
+
+.site-container {
+
+  position: relative;
+
+  width: 100%;
+  max-width: 640px;
+
+  margin: 0 auto;
+}
+
+
+/* SECCIONES */
+
+section {
+
+  position: relative;
+
+  width: 100%;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+  position: relative;
+  overflow: hidden;
+
+  width: 640px;
+  height: 490px;
+}
+
+.logo-wrapper {
+  position: absolute;
+
+  /* Cambiamos unidades dinámicas por fijas */
+  left: 40px; 
+  top: 20px;
+
+  /* Ajustamos el tamaño fijo que funciona en móvil */
+  width: 310px; 
+  height: 310px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0;
+  transform: scale(1);
+
+  animation: logoReveal 1.5s ease forwards;
+  animation-delay: 0.7s;
+
+  pointer-events: none;
+}
+
+.stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  animation: spin 18s linear infinite;
+
+  z-index: 0;
+}
+
+.logo {
+  width: 88%;
+  height: auto;
+  z-index: 0;
+}
+
+.logoname {
+  width: 90%;
+  height: auto;
+
+  margin-top: 1px;
+
+  position: relative;
+  z-index: 0;
+
+/* Forzamos que se mueva libremente */
+  position: absolute; 
+  
+  /* Ajuste hacia ABAJO (Aumenta este número para bajarlo más) */
+  bottom: 22px; 
+
+  /* Ajuste hacia la IZQUIERDA (Aumenta este número para tirarlo más a la izquierda) */
+  left: -18px;
+}
+
+
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+
+/* IMÁGENES */
+
+img {
+
+  display: block;
+
+  width: 100%;
+  height: auto;
+
+  user-select: none;
+
+  -webkit-user-drag: none;
+}
+
+
+/* =========================
+   PROMO
+========================= */
+
+.promo-section {
+
+  position: relative;
+
+  width: 100%;
+  height: auto;
+
+  overflow: hidden;
+}
+
+
+/* SLIDER */
+
+.promo-slider {
+
+  position: relative;
+
+  width: 100%;
+  aspect-ratio: 640 / 1018;
+
+  overflow: hidden;
+}
+
+
+/* IMAGENES PROMO */
+
+.promo-image {
+
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  opacity: 0;
+
+  transition:
+    opacity 0.45s ease;
+
+  pointer-events: none;
+}
+
+
+/* ACTIVA */
+
+.promo-image.active {
+
+  opacity: 1;
+
+  pointer-events: auto;
+
+  z-index: 2;
+}
+
+
+/* =========================
+   CONTROLES PROMO
+========================= */
+
+
+
+/* BOTONES */
+
+.promo-btn {
+
+  position: relative;
+
+  width: 48px;
+  height: 48px;
+
+  border: 1px solid rgba(90,90,95,0.55);
+
+  border-radius: 14px;
+
+  background: rgba(60,60,65,0.60);
+
+  backdrop-filter: blur(4px);
+
+  cursor: pointer;
+
+  transition:
+    opacity 0.25s ease,
+    background 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.promo-btn:active {
+
+  transform: scale(0.92);
+
+  background: rgba(95,95,100,0.95);
+
+  border-color: rgba(160,160,165,1);
+
+  transition: transform 0.12s ease, background 0.12s ease;
+}
+
+.prev-btn {
+
+  position: absolute;
+
+  left: 22px;
+  bottom: 22px;
+
+  z-index: 10;
+}
+
+.next-btn {
+
+  position: absolute;
+
+  right: 22px;
+  bottom: 22px;
+
+  z-index: 10;
+}
+
+/* HOVER */
+
+.promo-btn:hover {
+
+  background: rgba(95,95,100,0.85);
+
+
+  border-color: rgba(140,140,145,0.95);
+}
+
+
+/* FLECHAS */
+
+.promo-btn::before {
+
+  content: "";
+
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  width: 10px;
+  height: 10px;
+
+  border-top: 2px solid rgba(245,245,245,0.95);
+  border-right: 2px solid rgba(245,245,245,0.95);
+
+  transform-origin: center;
+}
+
+
+/* PREV */
+
+.prev-btn::before {
+
+  transform:
+    translate(-35%, -50%)
+    rotate(-135deg);
+}
+
+
+/* NEXT */
+
+.next-btn::before {
+
+  transform:
+    translate(-65%, -50%)
+    rotate(45deg);
+}
+
+
+/* DESACTIVADO */
+
+.promo-btn.disabled {
+
+  opacity: 0.55;
+
+  cursor: default;
+
+  pointer-events: none;
+}
+
+/* =========================
+   BLOQUE ANTES 08
+========================= */
+
+.before08-section {
+position: relative;
+max-width: 640px;
+  width: 100%;
+
+  background: #F3F3F4;
+}
+
+.before08-section img {
+
+  position: relative;
+
+  width: 100%;
+
+  height: auto;
+}
+
+.download-area {
+  position:absolute;
+
+  left:79%;
+  top:34%;
+
+  width:15%;
+  height:20%;
+
+  background: transparent;
+
+  z-index:999;
+  cursor: pointer; /* Añadimos esto que es un link */
+}
+
+.wsp-area {
+  position:absolute;
+
+  left:79%;
+  top:62%;
+
+  width:15%;
+  height:20%;
+
+  background: transparent;
+
+  z-index:999;
+  cursor: pointer;
+}
+
+/* =========================
+   CONTACTO
+========================= */
+
+.contact-section {
+
+  position: relative;
+  background: #F3F3F4;
+}
+
+
+/* BOTONES CONTACTO */
+
+.contact-buttons {
+  position: absolute;
+
+  top: 55%;
+  left: 40px;
+
+  transform: translateY(-50%);
+
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+
+  z-index: 10;
+}
+.contact-btn img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* BOTON CONTACTO */
+
+.contact-btn {
+  width: 80px;
+  height: 80px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+/* HOVER */
+
+.contact-btn:hover {
+
+  opacity: 0.75;
+
+  transform: scale(1.05);
+}
+
+
+/* =========================
+   PORTFOLIO LINK
+========================= */
+
+.portfolio-link {
+
+  display: block;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 640px) {
+
+  body {
+
+    background: #F3F3F4;
+  }
+
+}
+
+@keyframes logoReveal {
+
+  to {
+
+    opacity: 1;
+
+    transform: translateY(0);
+
+  }
+}
+@media (max-width: 768px) {
+  .contact-btn {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+@media (max-width: 640px) {
+  .logo-wrapper {
+    /* Tamaño más pequeño para que no pise el fondo en móvil */
+    width: 180px; 
+    height: 180px;
+    
+    /* Ajustamos posición si es necesario */
+    left: 20px;
+    top: 15px;
+  }
+}
+
+/* =========================
+   LOGO ANIMADO
+========================= */
+
+.hero-logo {
+
+  position: absolute;
+
+  top: 11%;
+  left: 5%;
+
+  width: 42%;
+  height: auto;
+
+  opacity: 0;
+
+  transform: translateY(28px);
+
+  animation:
+    logoReveal 1.5s ease forwards;
+
+  animation-delay: 0.7s;
+
+  pointer-events: none;
+}
+
+.download-modal {
+
+  position: fixed;
+  inset: 0;
+
+  background: rgba(0,0,0,.35);
+
+  display: none;
+
+  align-items: center;
+  justify-content: center;
+
+  z-index: 9999;
+}
+
+.download-modal.active {
+
+  display: flex;
+}
+
+.download-box {
+
+  width: 420px;
+  max-width: 90%;
+
+  padding: 30px;
+
+  border-radius: 18px;
+
+  background: #d9d9d9;
+
+  text-align: center;
+}
+
+.download-actions {
+
+  margin-top: 20px;
+
+  display: flex;
+  gap: 12px;
+
+  justify-content: center;
+}
+
+.download-actions a {
+
+  background: #7c5cff;
+
+  color: white;
+
+  padding: 10px 24px;
+
+  border-radius: 10px;
+
+  text-decoration: none;
+}
+.download-actions button {
+
+  background: #bdbdbd;
+
+  color: white;
+
+  border: none;
+
+  padding: 10px 24px;
+
+  border-radius: 10px;
+}
+
+/* =========================
+   ICONO DESCARGA
+========================= */
+
+.footer-download {
+
+  position: relative;
+}
+
+.download-icon {
+
+  position: absolute;
+
+   top: 60px;
+
+  right: 30px;
+
+  width: 48px;
+
+  height: auto;
+
+  z-index: 20;
+}
